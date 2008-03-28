@@ -1,0 +1,56 @@
+ Title: Module Creation Advanced
+   API: 1.0
+Author: Tobias Nystrom <lejban@gmail.com>
+
+Lets have a look a a more complicated mode than in the hello world example.
+
+Example:
+<?php
+	class talk extends module
+    {
+		var $mode    = ADMIN_MODE;
+        var $trigger = 'talk';
+        var $version = '0.1';
+        var $credits = 'Tobias Nystrom <lejban@gmail.com>';
+        var $usage   = '.talk <target> <text>';
+        var $help    = 'Says <text> to <target>';
+
+        function call()
+        {
+        	if(count($this->args) > 2) {
+        		$cmd    = array_shift($this->args);
+        		$target = array_shift($this->args);
+        		$text   = join(' ', $this->args);
+	            $this->sendTo($text, $target);
+	        } else {
+	        	$this->sendUsage();
+	        }
+        }
+    }
+?>
+Two properties are different here:
+
+# var $mode    = ADMIN_MODE;
+This defaults to USER_MODE, witch means that anyone on the network can use this
+module. When we set it to ADMIN_MODE, only authenticated admins can use this.
+(You authenticate with the bot by sending '!admin <password>' to the bot in a
+private message.)
+
+# var $usage   = '.talk <target> <text>';
+Observe that the leeding character now is a dot.
+
+
+Two new methods introduced here:
+
+# $this->sendTo($text, $target);
+This method can (try) to send $text to $target, there $target can be any
+channel or nickname on the IRC network.
+
+# $this->sendUsage();
+If input from the user is malformed, this method sends back the instructions
+how to use this module.
+
+
+More info:
+ * API Reference - http://www.lejban.se/bambotoo/docs/
+ * IRC Channel - irc://irc.freenode.net/bambotoo
