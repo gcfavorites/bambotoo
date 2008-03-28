@@ -1,0 +1,160 @@
+;;##################################################################################
+;; Bambotoo Configuration File
+;;##################################################################################
+;; Note:
+;; All date formatting functions in the configuration use the PHP date() function
+;; See http://php.net/date more more details
+;;
+;; Rename this file to bambotoo.ini for autoomatic loading
+;; or start with ./bambotoo -c /path/to/my/custom_config.ini
+;;
+;; The bot can only deal with one "server" on "one" config
+
+;;==================================================================================
+;; ADMIN
+;;==================================================================================
+;; Admin's password. Exactly as it is here, case sensitive etc.
+;; Authenticate yourself by sending "!admin <password>" in a /privmsg to the bot.
+;; Am empty password will not be acceptable
+
+adminpass = ""
+
+;;==================================================================================
+;; SERVER
+;;==================================================================================
+;; IRC Server and port to connect to - make sure the firewall is open
+;; (there's a miniirc server script in misc/ for testing and dev)
+;;
+;; default:
+; server = "irc.freenode.net"
+; port = "6667"
+
+server = "localhost"
+port = "6667"
+
+
+;;==================================================================================
+;; NICKNAME
+;;==================================================================================
+;; The bot's nickname and alternative nickname.
+;; For networks that require passwords check modules/ dir eg freenode.ini
+;;
+;; defaults are:
+;    nickname = "bambotoo"
+; altnickname = "bambotoo^"
+
+    nickname = "bambotoo"
+ altnickname = "bambotoo^"
+
+
+;;==================================================================================
+;; CHANNELS
+;;==================================================================================
+;; Channels to autojoin on startup, separated by space.
+;; must have a leading # eg "#bambotoo #somechan #anotherChan"
+;; default:
+;; channels = "#bambotoo"
+
+channels = "#bambotoo"
+
+
+;;==================================================================================
+;; MODULES
+;;==================================================================================
+;; Modules loaded when bambotoo starts, separated by spaces, or
+;; enter "all" to include all modules in the sub directories of 'modules/'
+;; To use 'all' modules and "skip" some modules prefix with a "-"
+;; eg "all -htmltitle -search"
+;; For configuration of modules see 'configs/modules/'
+;; default:
+; modules = "admin adminhelp insmod quit"
+
+modules = "all"
+
+;; A list of modules that can NEVER be loaded, seperated by spaces
+;; Note: To disable loading of a module permanently, rename the module file
+;; or directory, prefixing  a '_' eg '_foo.module.conf'
+;; default:
+;disabled modules = ""
+
+disabled_modules = ""
+
+
+;;==================================================================================
+;; LOGGING
+;;==================================================================================
+;; The directory to create and write log files to.
+;; Path is relative or absolute to the bambotoo.php script.
+;; This must be writable by the script's user account, otherwise bot cannot start.
+;;
+;; default
+; log_dir = "logs/"
+
+log_dir = "logs/"
+
+
+;; Format string for the date part of a log file name.
+;; an example filename is  "channel_name.log.12Dec2006"
+;; Some popular formats are:-
+;; "dMY" 	  result = 12Dec2006     (EggDrop standard, needed for seen-module)
+;; "Y-m-d"    result = 2006-12-25
+;; "y-d-m:H"  result = 2006-25-12:06 (hourly)
+;;
+;; default:
+;log_filename_date_format = "dMY"
+
+log_filename_date_format = "dMY"
+
+;; Format string for the date/time within a log file.
+;; The date/time is the first column of each line, for example
+;; 060825 18:55 <moon_banana> Hey this bambotoo is wicked !!
+;; Some popular formats are:-
+;; "[H:i]"        result = [13:20]     (EggDrop standard, needed for seen-module)
+;; "Y-m-d H:i:s"  result = 2006-12-25 13:20:59
+;;
+;; default:
+;log_date_time_format = "[H:i]"
+
+log_date_time_format = "[H:i]"
+
+
+;; Which channel(s) to log, separated by space.
+;; Seperate log files and directories are created for each channel
+;; default:
+; log_channels = ""
+
+log_channels = "#bambotoo"
+
+
+;; Log level for the bot itself:
+
+;; 1  Connections and connection errors.
+;; 2  Loading and unloading of modules.
+;; 3  Modules called
+;; 4  Bot's joins and parts
+;; 5  Notices
+;; 6  Modules
+;; 9  Errors
+;;
+;; default
+; log_level = "1 2 3 4 5 6 9"
+
+log_level = "1 2 3 4 5 6 9"
+
+
+;;==================================================================================
+;; Other
+;;==================================================================================
+;; Date format for the console output.
+;;
+;; default:
+;console_date_format = "H:i:s"
+
+console_date_format = "H:i:s"
+
+;; Colored output to console
+;;
+;; default:
+;console_colors = "no"
+
+console_colors = "no"
