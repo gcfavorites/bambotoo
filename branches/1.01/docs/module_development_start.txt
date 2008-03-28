@@ -1,0 +1,21 @@
+ Title: Good things to know
+   API: 1.0
+Author: Tobias Nystrom <lejban@gmail.com>
+
+ * Before you start
+   
+   If you haven't used PHP before, this might not be the best way to learn, but
+   if you have programmed in any other language before, then you probably going
+   to be fine.
+ 
+ * Debugging
+ 
+   You probably shouln't test your new module on a live IRC server, better to
+   one running locally on you computer, this one is what we use:
+     
+     http://www.lejban.se/bambotoo/pub/miniircd/miniircd-0.2.0-bambotoo.tar.gz
+  
+ * Documentation
+   
+   * PHP Reference	           http://php.net
+   * Bambotoo Class Reference  http://www.lejban.se/bambotoo/docs/

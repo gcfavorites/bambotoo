@@ -1,0 +1,39 @@
+
+  ___                   ___         _
+ |  _ \                |  _ \      | |
+ | |_) | __ _ _ __ ___ | |_) | ___ | |_ ___   ___
+ |  _ < / _` | '_ ` _ \|  _ < / _ \| __/ _ \ / _ \
+ | |_) | (_| | | | | | | |_) | (_) | || (_) | (_) |
+ |____/ \__,_|_| |_| |_|____/ \___/ \__\___/ \___/
+
+==============================================================================
+ Basic Installation
+==============================================================================
+
+Here's how to get Bambotoo up and running in five easy steps ;-)
+
+1) Copy the default configuration files
+   'configs/bambotoo.ini.default'
+   to
+   'configs/bambotoo.ini'
+
+
+2) Use your favourite text editor to edit 'configs/bambotoo.ini'.
+   The essential variables are:
+       server = "irc.server.net"
+       adminpass = "<your password here>"
+
+
+3) Make the script executable to executing at the command line
+   chmod +x bambotoo.php
+
+4) Start the bot with:
+   ./bambotoo.php
+  
+   Or if you want to run it in the background:
+   ./bambotoo.php -d
+
+5) Learn howto use bambotoo by typing !help in the IRC channel.
+
+   For admin commands, first authenticate with !admin <password> and then use
+   .help to see help on admin command.

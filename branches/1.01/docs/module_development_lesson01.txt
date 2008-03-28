@@ -1,0 +1,61 @@
+ Title: My First module
+   API: 1.0
+Author: Tobias Nystrom <lejban@gmail.com>
+
+I like to learn by example so we start with some code.
+
+Example code:
+<?php
+	class helloworld extends module
+    {
+        var $trigger = 'hello';
+        var $version = '0.1';
+        var $credits = 'Tobias Nystrom <lejban@gmail.com>';
+        var $usage   = '!hello';
+        var $help    = 'Outputs "Hello world"';
+
+        function call()
+        {
+            $this->send('Hello world');
+        }
+    }
+?>
+
+Save this as the file modules/custom/helloworld.module.php
+
+Lets step through this:
+
+# class helloworld extends module
+Create the module.
+
+# var $trigger = 'hello';
+This mean that '!' + $trigger is what you will write in the IRC channel to
+trigger this module, the result is '!hello'.
+
+# var $version = '0.1';
+# var $credits = 'Tobias Nystrom <lejban@gmail.com>';
+This modules version and who wrote it.
+
+# var $usage   = '!hello';
+A short description on how to use this module. As our module don't handle any
+arguments '!hello' is enough.
+
+# var $help    = 'Outputs "Hello world"';
+A text describing what the module does.
+
+# function call()
+This is the method that gets called when anyone write the trigger in the IRC
+channel. You can put any PHP-code in this method.
+
+# $this->send('Hello world');
+This sends 'Hello world!' back to the same channel where the trigger was said.
+(If anyone sent the trigger as a private message to the bot, the 'Hello World!'
+is sent as a private message to that person)
+
+That's it! Good luck, and if you write a complete module, please drop an email
+to me with the code.
+
+
+More info:
+ * API Reference - http://www.lejban.se/bambotoo/docs/
+ * IRC Channel - irc://irc.freenode.net/bambotoo
